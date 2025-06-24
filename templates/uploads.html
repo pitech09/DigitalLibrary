@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}">
+{{ form.hidden_tag() }}
+    <h2>Upload Book</h2>
+    <div class="form-group">
+        {{form.title.label}}
+        {{form.title(class='form-control')}}
+    </div>
+    <div class="form-group">
+        {{form.author.label}}
+        {{form.author(class='form-control')}}
+    </div>
+    <div class="form-group">
+        {{form.description.label}}
+        {{form.description(class='form-control')}}
+    </div>
+    <div class="form-group">
+        {{form.genre.label}}
+        {{form.genre(class='form-control')}}
+    </div>
+    <div class="form-group">
+        {{form.file.label}}
+        {{form.file(class='form-control')}}
+    </div>
+
+    <button class='btn btn-outline-primary rounded-pill form-control' type="submit">Upload</button>
+</form>
+{% endblock %}

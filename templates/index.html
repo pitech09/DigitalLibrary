@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">  <!-- Link your CSS file -->
+{% block content %}
+
+    <header>
+        <h1>Welcome to the Digital Library</h1>
+    </header>
+    <main>
+        <section id="intro">
+            <aside>
+
+            <p>
+                This library is a reflection of my love for storytelling and sharing knowledge. <br>I believe that
+                books have the power to change lives,<br> and I aim to provide a space where readers can discover,
+                learn, and escape into new worlds.
+            </p>
+                <p>
+                    If you are an author still coming up, i urge you to register and upload your books here.
+                </p>
+            <p>
+                Thank you for visiting, and I hope you find something here that resonates with you!
+            </p>
+                </aside>
+        </section>
+    </main>
+
+
+
+{% endblock %}
