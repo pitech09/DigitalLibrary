@@ -22,7 +22,19 @@
 
 </style>
 {%block content %}
+        <div class="search-bar">
+            <form id='searchForm' action="{{ url_for('search') }}" method="post">
+            {{ form1.hidden_tag() }}
 
+            <div class="input-group">
+                {{form1.keyword(class='form-control bg-light border-0 small')}}
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit">
+                  <i class="fas fa-search fa-sm"></i>
+              </button>
+            </div>
+        </div>
+    </form>
 <div class="product-grid">
 
         {% for book in books %}
@@ -34,6 +46,7 @@
               <button value={{book.id}} onclick="window.location.href='{{url_for('download', book_id=book.id) }}'"
                       class='btn btn-outline-primary rounded-pill' type="submit">Download Book
               </button>
+                <!--
                 <div class="avg-stars">
                     {% for i in range(1, 6) %}
                     {% if i <= book.average_rating %}
@@ -58,8 +71,9 @@
                     <button type="submit" class='btn btn-outline-primary rounded-pill'>Rate</button>
                 </form>
 
-            </div>
 
+            -->
+</div>
         </div>
         {% endfor %}
   </div>
