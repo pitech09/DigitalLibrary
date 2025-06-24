@@ -1,0 +1,66 @@
+{%extends "base.html" %}
+<style>
+    .star_rating{
+        direction:rtl;
+        display:inline-block;
+
+        }
+    .star_rating input[type='radio']{
+        display:none;
+    }
+    .star-rating label{
+        font-size:25px;
+        color:#ccc;
+        cursor:pointer;
+    }
+    .star-rating input[type='radio']:checked ~ label,
+    .star-rating label :hover,
+    .star-rating label:hover ~
+    label i{
+        color:gold;
+        }
+
+</style>
+{%block content %}
+
+<div class="product-grid">
+
+        {% for book in books %}
+        <div class="product-card">
+          <div class="product-name"><h4>{{ book.title }}</h4></div>
+            <div class="product-price">by {{ book.author }}</div>
+            <div class="product-description"><p>{{ book.description }}</p></div>
+            <div class="actions">
+              <button value={{book.id}} onclick="window.location.href='{{url_for('download', book_id=book.id) }}'"
+                      class='btn btn-outline-primary rounded-pill' type="submit">Download Book
+              </button>
+                <div class="avg-stars">
+                    {% for i in range(1, 6) %}
+                    {% if i <= book.average_rating %}
+                        <i class="fa fa-star" style="color:gold;"></i>
+                    {% elif i - book.average_rating < 1 %}
+                     <i class="fa fa-star-half" style="color:gold;"></i>
+                    {%else%}
+                    <i class="fa fa-star" style="color:#ccc;"></i>
+                    {%endif%}
+
+                    {%endfor%}
+                     <span style="color:black; font-size:30px;">{{book.average_rating}}</span>
+                    <p></p>
+                </div>
+
+
+                <form action="{{url_for('rate', book_id=book.id)}}" method="POST" class="star-rating">
+                    {%for i in range(5, 0, -1) %}
+                    <input type="radio" id="fa-star{{i}}" name="rating" value="{{i}}">
+                    <label for="fa-star{{i}}"><i class="fa fa-star"></i></label>
+                    {% endfor %}
+                    <button type="submit" class='btn btn-outline-primary rounded-pill'>Rate</button>
+                </form>
+
+            </div>
+
+        </div>
+        {% endfor %}
+  </div>
+  {% endblock %}

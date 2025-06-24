@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+ <div class="container mt-4">
+<form method="POST" action="{{ url_for('register') }}">
+    {{ form.hidden_tag() }}
+    <h2>Register</h2>
+    <div class="form-group">
+        {{form.username.label}}
+        {{form.username(class='form-control')}}
+    </div>
+    <div class="form-group">
+        {{form.email.label}}
+        {{form.email(class='form-control')}}
+    </div>
+    <div class="form-group">
+        {{form.password.label}}
+        {{form.password(class='form-control')}}
+    </div>
+    <button class="btn btn-outline-primary rounded-pill form-control" type="submit">Register</button>
+</form>
+ </div>
+{% endblock %}
