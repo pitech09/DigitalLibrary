@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('lib.png');
+    background-size:cover;
+    margin: 0;
+    padding: 20px;
+    object-fit: cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+header {
+    text-align: center;
+    padding: 10px;
+    background-color: #0c1599;
+    color: white;
+    border-radius:10px;
+
+}
+nav a {
+    margin: 0 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+h1 {
+    margin: 0;
+}
+form{
+    width:300px;
+}
+main  {
+    color:white;
+    margin: 20px auto;
+    padding: 20px;
+    backdrop-filter:blur(8px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size:25px;
+}
+main form{
+    max-width:400px;
+}
+
+main p {
+    font-size:30px;
+}
+
+section#intro {
+    margin-top: 20px;
+}
+section{
+    color:white;
+
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: medium;
+ }
+
+.form-signin {
+  width:50%;
+  padding: 1rem;
+  height:70%;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  width:60%;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  width:60%;
+}
