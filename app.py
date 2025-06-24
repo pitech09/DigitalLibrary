@@ -30,6 +30,7 @@ class User(UserMixin, db.Model):
     book = db.relationship('Book', back_populates='user')
 
 class Book(db.Model):
+    __searchable__ = ['genre', 'description', 'title', 'author']
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
     description = db.Column(db.String(500), nullable=False)
@@ -131,13 +132,26 @@ def upload():
 
 @app.route('/books', methods=['GET', 'POST'])
 def books():
+    form1 = Search()
     books = Book.query.all()
-    return render_template('books.html', books=books)
+    return render_template('books.html', books=books, form1=form1)
 
 @app.route('/download/<int:book_id>')
 def download(book_id):
     book = Book.query.get_or_404(book_id)
     return send_from_directory(app.config['UPLOAD_FOLDER'], book.filepath)
+
+@app.route('/search', methods=['POST', 'GET'])
+def search():
+    form1 = Search()
+    keyword = form1.keyword.data
+    books = Book.query.filter(
+        Book.genre.like(f'%{keyword}%') |
+        Book.description.like(f'%{keyword}%') |
+        Book.title.like(f'%{keyword}%') |
+        Book.author.like(f'%{keyword}%')
+    )
+    return render_template('books.html', books=books, form1=form1)
 
 
 @app.route('/logout')
@@ -150,4 +164,4 @@ def logout():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(port=7777,debug=True)
+    app.run(port=8080,debug=True)
