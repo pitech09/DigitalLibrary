@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
  <div class="container mt-4">
-<form method="POST" action="{{ url_for('register') }}">
+<form method="POST" action="{{ url_for('auth.register') }}">
     {{ form.hidden_tag() }}
     <h2>Register</h2>
     <div class="form-group">

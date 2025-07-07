@@ -1,0 +1,54 @@
+{%extends "base.html" %}
+<style>
+    .star_rating{
+        direction:rtl;
+        display:inline-block;
+
+        }
+    .star_rating input[type='radio']{
+        display:none;
+    }
+    .star-rating label{
+        font-size:25px;
+        color:#ccc;
+        cursor:pointer;
+    }
+    .star-rating input[type='radio']:checked ~ label,
+    .star-rating label :hover,
+    .star-rating label:hover ~
+    label i{
+        color:gold;
+        }
+
+</style>
+{%block content %}
+        <div class="search-bar">
+            <form id='searchForm' action="{{ url_for('main.search') }}" method="post">
+            {{ form1.hidden_tag() }}
+
+            <div class="input-group">
+                {{form1.keyword(class='form-control bg-light border-0 small')}}
+                <div class="input-group-append">
+                  <button class="btn btn-primary" type="submit">
+                  <i class="fas fa-search fa-sm"></i>
+              </button>
+            </div>
+        </div>
+    </form>
+<div class="product-grid">
+
+        {% for book in books %}
+        <div class="product-card">
+          <div class="product-name"><h4>{{ book.title }}</h4></div>
+            <div class="product-price">by {{ book.author }}</div>
+            <div class="product-description"><p>{{ book.description }}</p></div>
+            <div class="actions">
+              <button value={{book.id}} onclick="window.location.href='{{url_for('main.download', book_id=book.id) }}'"
+                      class='btn btn-outline-primary rounded-pill' type="submit">Download Book
+              </button>
+</div>
+        </div>
+        {% endfor %}
+  </div>
+  {% endblock %}
+        </div>

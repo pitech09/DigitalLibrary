@@ -13,6 +13,9 @@ class BookForm(FlaskForm):
     file = FileField('Upload Book', validators=[FileAllowed(['docx', 'epub', 'pdf'])])
     submit = SubmitField('Add')
 
+class Search(FlaskForm):
+    keyword = StringField('keyword')
+    submit = SubmitField('Search')
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])

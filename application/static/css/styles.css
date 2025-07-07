@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('lib.png');
+    background-size: cover;
+    margin: 0;
+    padding: 20px;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header {
+    text-align: center;
+    padding: 20px; /* Increased padding for better aesthetics */
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    border-radius: 10px;
+}
+
+form {
+    width: 100%; /* Changed to responsive width */
+    max-width: 400px; /* Set max width for form */
+    margin: 0 auto; /* Centered form */
+}
+
+main {
+    color: white;
+    margin: 20px auto;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 25px;
+    border-radius: 10px; /* Added border radius for a softer look */
+}
+
+main p {
+    font-size: 30px; /* Increased font size for better readability */
+}
+
+section#intro {
+    margin-top: 20px;
+}
+
+section {
+    color: black;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: medium;
+    color: white; /* Ensured footer text is visible */
+}
+
+.form-signin {
+    width: auto; /* Let width adapt */
+    max-width: 400px; /* Maintain max width */
+    padding: 1rem;
+    margin: 0 auto; /* Centered form */
+    backdrop-filter: blur(8px); /* Optional: For a nice background effect */
+    border-radius: 10px; /* Rounded edges */
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"],
+.form-signin input[type="password"] {
+    margin-bottom: -1px;
+    width: 100%; /* Full width for inputs */
+    border-radius: 0; /* Removed specific corners radius */
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px; /* Space below the password field */
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 15px; /* Reduced padding for smaller screens */
+        font-size: 20px; /* Adjusted font size */
+    }
+
+    header {
+        padding: 15px; /* Consistent header padding */
+    }
+
+    footer {
+        font-size: small; /* Smaller font in footer for smaller screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .toggle {
+        width: 50px; /* Smaller toggle on mobile */
+        height: 28px; /* Adjust height accordingly */
+    }
+
+    .slider:before {
+        height: 22px; /* Smaller knob */
+        width: 22px; /* Smaller knob */
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(22px); /* Adjust knob movement */
+    }
+}
